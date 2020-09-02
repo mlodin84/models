@@ -109,6 +109,10 @@ from google.protobuf import text_format
 from object_detection import exporter
 from object_detection.protos import pipeline_pb2
 
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.InteractiveSession(config=config)
+
 flags = tf.app.flags
 
 flags.DEFINE_string('input_type', 'image_tensor', 'Type of input node. Can be '

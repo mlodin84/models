@@ -24,6 +24,11 @@ import tensorflow.compat.v1 as tf
 
 from object_detection import model_lib
 
+tf.enable_eager_execution()
+config = tf.ConfigProto()
+config.gpu_options.allow_growth = True
+session = tf.InteractiveSession(config=config)
+
 flags.DEFINE_string(
     'model_dir', None, 'Path to output model directory '
     'where event and checkpoint files will be written.')
